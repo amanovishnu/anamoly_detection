@@ -34,7 +34,7 @@ def register():
         new_user = User(username=username, email=email, password=hashed_password)
         db.session.add(new_user)
         db.session.commit()
-        return redirect('/login')
+        return redirect('/')
     return render_template('register.html')
 
 
