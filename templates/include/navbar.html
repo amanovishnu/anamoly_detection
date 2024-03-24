@@ -1,0 +1,21 @@
+<nav class="navbar navbar-expand-lg bg-custom-color-3 p-0 fixed-top" id="navbar">
+    <div class="container-fluid">
+        <div class="d-flex my-1 mx-2">
+            <span class="navbar-brand fs-22">
+                <a href="{{ url_for('login') }}" class="text-white text-decoration-none">
+                    <span>ANOMALY DETECTION</span>
+                </a>
+            </span>
+        </div>
+        <div class="nav navbar-nav justify-content-end">
+            <ul class="navbar-nav">
+                <li class="nav-item dropdown my-auto d-flex">
+                    <i class="fas fa-sign-out-alt my-auto fs-22 text-white"></i>
+                    <a class="f-ubuntu-regular text-white fs-14 ps-2 my-auto pointer text-decoration-none" href="{{ url_for('logout') }}">
+                        Logout
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block title %}
+AML | Sign Up
+{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-6 px-0">
+            <div class="row vh-100 align-items-center justify-content-center">
+                <div class="text-center">
+                    <img src="{{ url_for('static', filename='images/logo.webp') }}" alt="Logo" class="vh-100 w-100">
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 bg-custom-color-3 vh-100">
+            <div class="row vh-100 align-items-center justify-content-center">
+                <div class="col-lg-7 mx-auto">
+                    <div class="my-3">
+                        <div class="text-center">
+                            <h4 class="text-white">GROUP 25</h4>
+                        </div>
+                        <div class="text-center my-0 text-white fs-22">
+                            ANOMALY DETECTION
+                        </div>
+                    </div>
+                    <div class="card p-3 px-4  rounded-3 border-0">
+                        <div>
+                            <form action="{{ url_for('register') }}" method="POST">
+                                <div class="mt-2">
+                                    <label class="mb-1 f-ptSans-bold fs-14" for="username">
+                                        Username
+                                    </label>
+                                    <input type="text" name="username" class="form-control fs-14" placeholder="Enter Your Username ..." required autocomplete>
+                                </div>
+                                <div class="mt-2">
+                                    <label class="mb-1 f-ptSans-bold fs-14" for="name">
+                                        Enter Email
+                                    </label>
+                                    <input type="text" name="email" class="form-control fs-14" placeholder="Enter Your Email ..." required autocomplete>
+                                </div>
+                                <div class="mt-2">
+                                    <label class="mb-1 f-ptSans-bold fs-14" for="password">
+                                        Enter Password
+                                    </label>
+                                    <input type="password" name="password" class="form-control fs-14" placeholder="**********" required autocomplete>
+                                </div>
+                                <div class="text-left my-3">
+                                    <button class="btn btn-sm btn-custom-color px-4 rounded-5">Create an Account</button>
+                                </div>
+                            </form>
+                            <div class="text-left fs-12">
+                                <a href="{{ url_for('login') }}">
+                                    Existing User ? Login Here.
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center my-4 text-white f-ubuntu-regular fs-14">
+                        BITS WILP - Sem 2 - Applied Machine Learning
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

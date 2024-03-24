@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+
+{% block title %}
+AML | Model
+{% endblock %}
+
+
+{% include 'include/navbar.html' %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8 bg-custom-color-2 px-5">
+            <div class="row vh-100 align-items-center justify-content-center">
+                <div class="mx-auto">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="f-ptSans-bold fs-24 text-uppercase mb-3">Enter your Data</div>
+                        </div>
+                        <div class="col-md-4 mb-2">
+                            <label class="f-ptSans-bold fs-14">SRC BYTES</label>
+                            <input required class="form-control form-control-sm" placeholder="Enter SRC BYTES" type="number" id="src_bytes">
+                        </div>
+                        <div class="col-md-4 mb-2">
+                            <label class="f-ptSans-bold fs-14">DST BYTES</label>
+                            <input required class="form-control form-control-sm" placeholder="Enter DST BYTES" type="number" id="dst_bytes">
+                        </div>
+                        <div class="col-md-4 mb-2">
+                            <label class="f-ptSans-bold fs-14">DST HOST SRV COUNT</label>
+                            <input required class="form-control form-control-sm" placeholder="Enter DST HOST SRV COUNT" type="number" id="dst_host_srv_count">
+                        </div>
+                        <div class="col-md-4 mb-2">
+                            <label class="f-ptSans-bold fs-14">FLAG SF</label>
+                            <select required class="form-select form-select-sm" id="flag_sf">
+                                <option value="True">True</option>
+                                <option value="False">False</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4 mb-2">
+                            <label class="f-ptSans-bold fs-14">DST HOST DIFF SRV RATE</label>
+                            <input required class="form-control form-control-sm" placeholder="Enter DST HOST DIFF SRV RATE" type="number" id="dst_host_diff_srv_rate">
+                        </div>
+                        <div class="col-md-4 mb-2">
+                            <label class="f-ptSans-bold fs-14">DST HOST RERROR RATE</label>
+                            <input required class="form-control form-control-sm" placeholder="Enter DST HOST RERROR RATE" type="number" id="dst_host_rerror_rate" min="0" max="1">
+                        </div>
+                        <div class="col-md-4 mb-2">
+                            <label class="f-ptSans-bold fs-14">DIFF SRV RATE</label>
+                            <input required class="form-control form-control-sm" placeholder="Enter DIFF SRV RATE" type="number" id="diff_srv_rate">
+                        </div>
+                        <div class="col-md-4 mb-2">
+                            <label class="f-ptSans-bold fs-14">COUNT</label>
+                            <input required class="form-control form-control-sm" placeholder="Enter COUNT" type="number" id="count">
+                        </div>
+                        <div class="col-md-4 mb-2">
+                            <label class="f-ptSans-bold fs-14">RERROR RATE</label>
+                            <input required class="form-control form-control-sm" placeholder="Enter RERROR RATE" type="number" id="rerror_rate" min="0" max="1">
+                        </div>
+                        <div class="col-md-4 mb-2">
+                            <label class="f-ptSans-bold fs-14">DST HOST SERROR RATE</label>
+                            <input required class="form-control form-control-sm" placeholder="Enter DST HOST SERROR RATE" type="number" id="dst_host_serror_rate" min="0" max="1">
+                        </div>
+                        <div class="col-md-12 mt-3">
+                            <button class="btn btn-sm btn-custom-color px-5" id="submit-form">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="row vh-100 align-items-center justify-content-center text-center">
+                <div class="pt-5 my-auto" id="loading-div">
+                    <img src="{{ url_for('static', filename='images/logo.webp') }}" alt="Logo" class="w-100">
+                </div>
+                <div class="d-none" id="result-div">
+                    <h1 class="fs-50" id="output-div"></h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% include 'include/footer.html' %}

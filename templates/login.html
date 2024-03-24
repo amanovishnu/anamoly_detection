@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% block title %}
+AML | Login
+{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-8 px-0">
+            <div class="row vh-100 align-items-center justify-content-center bg-light">
+                <div class="text-center">
+                    <img src="{{ url_for('static', filename='images/anamoly_logo.gif') }}" alt="LOGO" class="vh-100 w-100">
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 bg-custom-color-3 vh-100">
+            <div class="row vh-100 align-items-center justify-content-center">
+                <div class="col-lg-9 mx-auto">
+                    <div class="my-3">
+                        <div class="text-center">
+                            <h4 class="text-white">GROUP 25</h4>
+                        </div>
+                        <div class="text-center my-0 text-white fs-22">
+                            ANOMALY DETECTION
+                        </div>
+                    </div>
+                    <div class="card p-3 px-4  rounded-3 border-0">
+                        <div class="f-ptSans-bold mb-2 fs-20">Welcome User</div>
+                        {% if data %}
+                            {% if data.message %}
+                                <div class="alert alert-danger fs-14 p-1 text-center" id="errorAlert" role="alert">
+                                    {{ data.message }}
+                                </div>
+                            {% endif %}
+                        {% endif %}
+                        <div>
+                            <form action="{{ url_for('login') }}" method="POST">
+                                <div>
+                                    <label class="mb-1 f-ptSans-bold fs-14" for="username">
+                                        <i class="fas fa-user px-1"></i>Username
+                                    </label>
+                                    <input type="text" name="username" class="form-control fs-14" placeholder="Enter Your Username ..." required autocomplete>
+                                </div>
+                                <div class="mt-2">
+                                    <label class="mb-1 f-ptSans-bold fs-14" for="password">
+                                        <i class="fas fa-lock px-1"></i>Password
+                                    </label>
+                                    <input type="password" name="password" class="form-control fs-14" placeholder="**********" required autocomplete>
+                                </div>
+                                <div class="text-left mt-3 mb-2">
+                                    <button class="btn btn-sm btn-custom-color px-4 rounded-5">Log in</button>
+                                </div>
+                            </form>
+                            <div class="text-left fs-12">
+                                <a href="{{ url_for('register') }}">
+                                    New User ? Create an Account
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center my-4 text-white f-ubuntu-regular fs-14">
+                        BITS WILP - Sem 2 - Applied Machine Learning
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
