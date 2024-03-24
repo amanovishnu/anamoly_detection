@@ -28,12 +28,10 @@ AML | Login
                     </div>
                     <div class="card p-3 px-4  rounded-3 border-0">
                         <div class="f-ptSans-bold mb-2 fs-20">Welcome User</div>
-                        {% if data %}
-                            {% if data.message %}
-                                <div class="alert alert-danger fs-14 p-1 text-center" id="errorAlert" role="alert">
-                                    {{ data.message }}
-                                </div>
-                            {% endif %}
+                        {% if message %}
+                            <div class="alert alert-danger fs-14 p-1 text-center" id="errorAlert" role="alert">
+                                {{ message }}
+                            </div>
                         {% endif %}
                         <div>
                             <form action="{{ url_for('login') }}" method="POST">

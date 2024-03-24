@@ -37,31 +37,50 @@ AML | Model
                             </select>
                         </div>
                         <div class="col-md-4 mb-2">
-                            <label class="f-ptSans-bold fs-14">DST HOST DIFF SRV RATE</label>
-                            <input required class="form-control form-control-sm" placeholder="Enter DST HOST DIFF SRV RATE" type="number" id="dst_host_diff_srv_rate">
+                            <div class="d-flex justify-content-between">
+                                <label class="f-ptSans-bold fs-14">DST HOST DIFF SRV RATE</label>
+                                <span class="f-ptSans-bold fs-14">0-1</span>
+                            </div>
+                            <input required class="form-control form-control-sm" placeholder="Enter DST HOST DIFF SRV RATE" type="number" id="dst_host_diff_srv_rate" min="0" max="1">
                         </div>
                         <div class="col-md-4 mb-2">
-                            <label class="f-ptSans-bold fs-14">DST HOST RERROR RATE</label>
+                            <div class="d-flex justify-content-between">
+                                <label class="f-ptSans-bold fs-14">DST HOST RERROR RATE</label>
+                                <span class="f-ptSans-bold fs-14">0-1</span>
+                            </div>
                             <input required class="form-control form-control-sm" placeholder="Enter DST HOST RERROR RATE" type="number" id="dst_host_rerror_rate" min="0" max="1">
                         </div>
                         <div class="col-md-4 mb-2">
-                            <label class="f-ptSans-bold fs-14">DIFF SRV RATE</label>
-                            <input required class="form-control form-control-sm" placeholder="Enter DIFF SRV RATE" type="number" id="diff_srv_rate">
+                            <div class="d-flex justify-content-between">
+                                <label class="f-ptSans-bold fs-14">DIFF SRV RATE</label>
+                                <span class="f-ptSans-bold fs-14">0-1</span>
+                            </div>
+                            <input required class="form-control form-control-sm" placeholder="Enter DIFF SRV RATE" type="number" id="diff_srv_rate" min="0" max="1">
                         </div>
                         <div class="col-md-4 mb-2">
                             <label class="f-ptSans-bold fs-14">COUNT</label>
                             <input required class="form-control form-control-sm" placeholder="Enter COUNT" type="number" id="count">
                         </div>
                         <div class="col-md-4 mb-2">
-                            <label class="f-ptSans-bold fs-14">RERROR RATE</label>
+                            <div class="d-flex justify-content-between">
+                                <label class="f-ptSans-bold fs-14">RERROR RATE</label>
+                                <span class="f-ptSans-bold fs-14">0-1</span>
+                            </div>
                             <input required class="form-control form-control-sm" placeholder="Enter RERROR RATE" type="number" id="rerror_rate" min="0" max="1">
                         </div>
                         <div class="col-md-4 mb-2">
-                            <label class="f-ptSans-bold fs-14">DST HOST SERROR RATE</label>
+                            <div class="d-flex justify-content-between">
+                                <label class="f-ptSans-bold fs-14">DST HOST SERROR RATE</label>
+                                <span class="f-ptSans-bold fs-14">0-1</span>
+                            </div>
                             <input required class="form-control form-control-sm" placeholder="Enter DST HOST SERROR RATE" type="number" id="dst_host_serror_rate" min="0" max="1">
                         </div>
-                        <div class="col-md-12 mt-3">
+                        <div class="col-md-12 my-2">
+                            <span class="fs-12 f-ptSans-bold">Note: Values for Inputs "DST HOST DIFF SRV RATE", "DST HOST RERROR RATE", "DIFF SRV RATE", "RERROR RATE", "DST HOST SERROR RATE" Lies between 0 to 1 </span>
+                        </div>
+                        <div class="col-md-12 mt-2">
                             <button class="btn btn-sm btn-custom-color px-5" id="submit-form">Submit</button>
+                            <button class="btn btn-sm btn-custom-color px-4" id="clear-form">Clear Inputs</button>
                         </div>
                     </div>
                 </div>
@@ -73,6 +92,7 @@ AML | Model
                     <img src="{{ url_for('static', filename='images/logo.webp') }}" alt="Logo" class="w-100">
                 </div>
                 <div class="d-none" id="result-div">
+                    <span>Result</span>
                     <h1 class="fs-50" id="output-div"></h1>
                 </div>
             </div>

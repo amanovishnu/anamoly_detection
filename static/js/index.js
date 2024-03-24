@@ -14,29 +14,42 @@ $("body")
             dst_host_serror_rate: parseFloat($("#dst_host_serror_rate").val())
         };
 
-        $.ajax({
-            url: "/predict_anomaly",
-            type: 'POST',
-            data: JSON.stringify(new_data),
-            contentType: "application/json",
-            success: function (result, textStatus, xhr) {
-                if (result["output"] == 1)
-                    $("#output-div").text("ANOMALY")
-                else
-                    $("#output-div").text("NOT ANOMALY")
-
-                $("#loading-div").addClass("d-none");
-                $("#result-div").removeClass("d-none");
-
-                setTimeout(function () {
-                    $("input[type='number']").val("");
-                    $("#result-div").fadeOut("slow", function () {
-                        $(this).addClass("d-none");
-                        $("#loading-div").fadeIn("slow", function () {
-                            $(this).removeClass("d-none");
-                        });
-                    });
-                }, 5000);
+        let hasEmptyValue = false;
+        Object.values(new_data).forEach(function (value) {
+            console.log(value)
+            if (isNaN(value)) {
+                hasEmptyValue = true;
+                return false;
             }
         });
+        if (hasEmptyValue) {
+            alert("Please fill in all fields before submitting.");
+        }
+        else {
+
+            $("#loading-div").removeClass("d-none");
+            $("#result-div").addClass("d-none");
+
+            $.ajax({
+                url: "/predict_anomaly",
+                type: 'POST',
+                data: JSON.stringify(new_data),
+                contentType: "application/json",
+                success: function (result, textStatus, xhr) {
+                    if (result["output"] == 1)
+                        $("#output-div").text("ANOMALY")
+                    else
+                        $("#output-div").text("NOT ANOMALY")
+                    $("#loading-div").addClass("d-none");
+                    $("#result-div").removeClass("d-none");
+                }
+            });
+        }
+    })
+
+
+    .on("click", "#clear-form", function (event) {
+        $("input[type='number']").val("");
+        $("#loading-div").removeClass("d-none");
+        $("#result-div").addClass("d-none");
     })

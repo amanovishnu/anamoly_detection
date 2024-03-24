@@ -54,8 +54,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - This project utilizes the KDD 99 dataset for anomaly detection.
 - Special thanks to contributors and open-source projects used in this application.
-
-
-
-
-

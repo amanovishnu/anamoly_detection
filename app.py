@@ -48,7 +48,8 @@ def login():
             session['user_id'] = user.id
             return redirect('/model')
         else:
-            return 'Invalid username or password'
+            message = 'Invalid Username/Password'
+            return render_template('login.html', message=message)
     return render_template('login.html')
 
 
